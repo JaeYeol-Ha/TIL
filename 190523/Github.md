@@ -42,3 +42,17 @@ public class Helloworld{
 
 짜잔
 
+
+
+------
+
+
+
+- 살짝 수정함!
+
+
+
+## 추가 내용
+
+- git add는 git init한 폴더(최상위폴더)에서 꼭 하자! 
+
