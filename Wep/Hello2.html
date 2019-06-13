@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hello</title>
+</head>
+<body>
+	<h3><a href="http://www.facebook.com" target='_blank'>페이스북</a></h3>
+
+	<h1>회원 가입</h1>
+
+	<form method="post" action="login.jsp" name="" id="">
+		아 이 디 : <input type="text" name="userid" id="userid"><br>
+		비밀번호 : <input type="password" name="userpwd" id="userpwd"><br>
+
+		URL : <input type="url" name="url"><br>
+		EMAIL : <input type="email" name="email"><br>
+		연락처 : <input type="tel" name="phone" pattern="\d{3}-\d{4}-\d{4}" placeholder="000-0000-0000"><br>
+		Numner : <input type="number" max="100" min=0 step=5 title="0~100사이의 값만 허용합니다."name=""><br>
+		data : <input type="data"><br>
+		time : <input type="time"><br>
+		week : <input type="week"><br>
+		month : <input type="month"><br>
+		color : <input type="color"><br>
+		range : <input type="range" max="100" min = 0 step=5><br>
+		암호화 키 <keygen name="key"><br>
+
+		Search : <input type="search"><br>
+		<textarea>
+		</textarea>
+
+		<textarea rows="5" col="30"></textarea><br>
+		
+		<input type="file"><br>
+		
+		<select>
+			<option>서울</option>
+			<option>경기도</option>
+			<option>강운도</option>
+			<option>경상도</option>
+			<option>전라도</option>
+		</select><br>
+		
+		<input type="button" value="버튼" name=""><br>
+		<input type="submit" value="로그인">
+		<input type="reset" value="취소"><br>
+
+		<input type="text" name="fruits" list="fruits"><br>
+		<datalist id="fruits">
+			<option value="apple" label="사과">
+			<option value="orange" label="오렌지">
+			<option value="grape" label="포도">
+			<option value="mango" label="망고">
+			<option value="mellon" label="멜론">
+		</datalist>
+
+		<details open>
+			<summary>복사중
+			...
+				<progress max="375505392" value="97543282"></progress> 25%
+			</summary>
+			<dl>
+				<dt>초당 전송량:</dt><dd>452KB/s</dd>
+				<dt>복사할 파일명:</dt><dd>/home/rpausch/raydc.m4v</dd>
+			</dl>
+	</form>
+</body>
+</html>

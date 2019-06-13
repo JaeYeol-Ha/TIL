@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<title>HTML 기본 구조</title>
+	<style>
+		body{
+			font-Size:20px;
+			color: blue;
+		}
+	</style>
+</head>
+<body>
+	안녕하세요. 반갑습니다~.<br>
+	<a href="https://www.w3schools.com">Visit W3Schools.com!</a><br>
+	The <abbr title="World Health Organization">WHO</abbr> was founded in 1948.<br>
+
+	<applet code="MyApplet.class" width="350" height="350">
+	Java applet that draws animated bubbles.
+	</applet>
+
+	<h1>h1 Block태그</h1> <!--Block태그-->
+	<h2>h2 Block태그는</h2> <!--Block태그-->
+	<h3>h3 자동으로</h3> <!--Block태그-->
+	<h4>h4 줄바꿈을</h4> <!--Block태그-->
+	<h5>h5 해주는 태그</h5> <!--Block태그-->
+	<!-- 주석 : 브라우저 엔진 파서가 해석하지 않는 부분-->
+	<p></p>
+
+	<ruby>
+		<span>大韓民國</span>
+		<rt>대한민국</rt>
+	</ruby>
+
+	<ol>
+		<li>Facebook</li>
+		<li>Tweeter</li>
+		<li>Linked In</li>
+	</ol>
+	<ul>
+		<li>Facebook</li>
+		<li>Tweeter</li>
+		<li>Linked In</li>
+	</ul>
+	<table border=1>
+		<tr>
+		    <th>Month</th>
+		    <th>Savings</th>
+		</tr>
+		<tr>
+		    <td>January</td>
+		    <td>$100</td>
+		</tr>
+	</table>
+	<br>
+	<br>
+	<table border=1>
+		<tr>
+			<td rowspan="6" width="100"></td>
+			<td rowspan="2">성명</td> <!-- 다음 tr(row)태그까지 영향 , 2줄을 차지한다(세로)-->
+			<td>한글</td>
+			<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+			<td>나이(만)</td>
+			<td>&nbsp;</td>
+			<td rowspan="2">성별</td>
+			<td rowspan="2">&nbsp;</td>
+		</tr>
+		<tr>
+		    <td>영문</td>
+		    <td width="5"></td>
+		    <td>주민등록번호</td>
+		    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		</tr>
+		<tr>
+			<td colspan="2">현주소</td>
+			<td colspan="5"></td>
+			<!-- 5칸(열)을 차지한다.(가로) -->
+		</tr>
+		<tr>
+			<td colspan="2">e-mail</td>
+			<td colspan="5"></td>
+		</tr>
+		<tr>
+			<td colspan="2">신장</td>
+			<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cm</td>
+			<td>몸무게</td>
+			<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;kg</td>
+			<td>혈액형</td>
+			<td>&nbsp;&nbsp;형</td>
+		</tr>
+		<tr>
+			<td colspan="2">전화번호</td>
+			<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+			<td>휴대폰</td>
+			<td colspan="3">&nbsp;</td>
+		</tr>
+	</table>	
+
+	<img src='./img/Penguins.jpg' title="귀요미"/>
+	<audio src='Kalimba.mp3' controls autoplay loop></audio>
+
+	
+</body>
+</html>
