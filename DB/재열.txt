@@ -1,0 +1,262 @@
+작성된 sql 문장과 JDBC 구현 Java 소스를 하나의 파일에 저장하고 "이름.txt"으로 제출하세요.
+
+[ SQL ]
+scott 계정으로 접속하여 다음의 문제들을 해결하고 각 문제 아래에 SQL 문을 작성합니다. 
+
+1. emp 테이블의 구조를 파악할 수 있는 SQL 명령을 작성하시오.
+
+> desc emp
+
+2. emp 테이블 사원들이 소속 부서번호의 종류만 검색 결과로 생성하는 SQL 명령을 작성하시오.
+
+> select distinct deptno from emp;
+
+3. 오늘의 날짜를 작성하는 SQL 명령을 작성하시오. 컬럼 헤딩은 "Today" 입니다.
+날짜의 작성 형식 : 2019년 6월 13일 
+
+Today
+======================
+2019년 6월 13일 
+
+
+> select sysdate as Today from dual; ------- (오답)
+
+4. 부서별 사원수와 급여평균을 출력하시오 (부서번호의 오름차순으로 출력합니다.)
+
+> 
+
+select deptno, count(*)
+from emp
+group by deptno
+order by deptno;
+
+
+5. 전체 사원들의 급여 평균과
+부서별 사원들의 급여 평균과
+부서와 직무로 그룹핑한 사원들의 급여 평균을 출력하는 SQL 명령을 작성하시오.
+
+select avg(sal)
+from emp
+join
+select avg(sal)
+from emp
+group by deptno
+join
+select avg(sal)
+from emp
+group by deptno
+
+
+6. 부서를 배정받지 못한 사원정보와 소속 사원이 없는 부서 정보를 결과에 포함하여
+ emp사원의 사원이름, 소속 부서번호, 부서이름, 부서위치 정보를 출력하는 SQL을 작성하시오
+
+
+select e.ename, e.deptno, d.dname, d.loc
+from emp e, dept d
+where e.deptno = d.deptno; ------------(오답)
+
+
+# 다음은 hr 계정으로 접속하여 다음의 문제들을 해결하고 각 문제 아래에 SQL 문을 작성합니다. 
+
+7. 부서 배치가 아직 되지 않은 직원의 id(employee_id), 이름(first_name), 해당 직원을 담당하는 매니저 ID, 매니저의 이름을 조회하여 출력하시오. 
+
+사번 사원 이름 매니저 사번 매니저 이름
+---------------------------------------------------------------------
+178  Kimberely	 149 		Eleni 
+
+
+select e.employee_id as "사번", e.first_name as "사원 이름", e.manager_id as "매니저 사번", d.first_name as "매니저 이름"
+from employees e, employees d 
+where e.department_id is null and e.manager_id = d.employee_id;
+
+
+8. 입사월 별로 직원의 최고급여를 조회하여 출력하시오. 단, 출력시 최고급여 내림차순으로 정렬되어 출력하며 최고급여가 10000 이상인 직원만 출력합니다. 
+
+입사월	최고급여
+--------------------------
+6월 24,000원
+1월	17,000원
+9월	17,000원
+10월	14,000원
+:
+11월 10,500원
+
+select hire_date, max(salary) as max_sal
+from employees
+group by hire_date
+order by max_sal desc; --- (오답)
+
+
+9. 입사년도별 직원 수를 구하여 출력하시오. 단, 급여가 5000에서 10000 사이만 직원만 그리고 직원수가 7명 이상인 경우만 출력하시오. 또한 출력은 입사년도 순으로 정렬하시오.
+입사년도 조건에 맞는 직원수
+-----------------------------------------------
+05	11
+06	9
+07	8
+
+select hire_date as "입사년도" , count(*) as "조건에 맞는 직원수"
+from employees
+where salary BETWEEN 5000 and 10000
+group by hire_date; --- 오답
+
+
+
+============================[ JDBC ]===========================================================
+
+
+package ncs.jdbc.test;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+
+class JDBCManager {
+	public Connection dbCon() {
+		Connection con = null;
+		try {
+			Class.forName("oracle.jdbc.OracleDriver");
+			con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "hr", "oracle");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return con;
+	}
+
+	public void dbClose(Connection con, Statement stat, ResultSet rs) {
+		try {
+			if (rs != null)
+				rs.close();
+			if (stat != null)
+				stat.close();
+			if (con != null)
+				con.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public char input() {
+		char c = 0;
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		try {
+			c = (char) br.read();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return c;
+
+	}
+
+	public ArrayList<Employee> search() {
+		Connection con = dbCon();
+		PreparedStatement stat = null;
+		ResultSet rs = null;
+		ArrayList<Employee> employees = new ArrayList<>();
+		String input = String.valueOf(input()).toUpperCase();
+		String sql = "SELECT first_name || '('|| last_name ||')', salary "
+					+ "FROM EMPLOYEES " 
+					+ "WHERE first_name LIKE '" + input +"%'";
+		try {
+			stat = con.prepareStatement(sql);
+			rs = stat.executeQuery();
+			while (rs.next()) {
+				Employee employee = new Employee();
+				employee.setName(rs.getString(1));
+				employee.setSalary(rs.getInt(2));
+				employees.add(employee);
+			}
+		} catch (SQLException e) {
+			System.out.println("DB연동 오류 발생 : " + e.toString());
+			e.printStackTrace();
+		}
+		dbClose(con, stat, rs);
+		return employees;
+	}
+
+}
+
+public class JDBCTest {
+
+	public static void main(String[] args) {
+		JDBCManager jm = new JDBCManager();
+		System.out.println(" 직원이름의 첫 글자를 인자로 전달하면 해당 글자로 이름(first_name)이 시작되는 직원의" + 
+				"이름(first_name),성(last_name), 급여(salary) 출력");
+		ArrayList<Employee> employees = jm.search();
+		System.out.println("직원 이름\t\t\t급여"); 
+		System.out.println("--------------------------------------");
+		for (Employee employee : employees) {
+			System.out.println(employee.toString());	
+		}
+		System.out.println("--------------------------------------");
+	}
+
+}
+
+=======================================================================================
+package ncs.jdbc.test;
+
+public class Employee {
+	String firstName;
+	String lastName;
+	String Name;
+	int salary;
+
+	public Employee() {
+		super();
+	}
+
+	public Employee(String firstName, String lastName, int salary) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.salary = salary;
+	}
+
+	public String getName() {
+		return Name;
+	}
+
+	public void setName(String name) {
+		Name = name;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public int getSalary() {
+		return salary;
+	}
+
+	public void setSalary(int salary) {
+		this.salary = salary;
+	}
+
+	@Override
+	public String toString() {
+		return getName() + "\t" + getSalary() +"원";
+	}
+	
+	
+}
+
+

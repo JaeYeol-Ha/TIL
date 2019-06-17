@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CSS3 Selector Basic Page</title>
+	<style type="text/css">
+		input[type=text] {
+			background: red;
+		}
+		input[type=password]{
+			background: blue;
+		}
+		img[src$=png]{
+			border:3px solid red;
+		}
+		img[src$=jpg]{
+			border:3px solid blue;
+		}
+		h1:hover{
+			/*마우스를 올릴 시*/
+			color:red;
+		}
+		h1:active{
+			/*마우스로 클릭 시*/
+			color:brown;
+		}
+		input:enabled {
+			background-color: white;
+		}
+		input:disabled{
+			background-color: gray;
+		}
+		input:focus{
+			background-color: orange;
+		}
+	</style>
+</head>
+<body>
+	<form>
+		<input type="text" name="">
+		<input type="password" name="">
+	</form>
+	<h1> active 글자 </h1>
+	<img src="images/trip.jpg" width="200" height="250">
+	<img src="images/full.png" width="200" height="250">
+
+	<h2>Enabled</h2>
+	<input type="" name="">
+	<h2>Disabled</h2>
+	<input disabled="disabled" type="" name="">
+</body>
+</html>
