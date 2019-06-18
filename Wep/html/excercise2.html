@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+</head>
+<body>
+    #자바스크립트의 데이터 유형<br>
+    1. premitive type - number, string, function, boolean, undefined, null <br>
+    2. 객체(reference type) - function, object<br>
+
+	<script>
+        var a = 1; //정수와 실수 구분?
+        document.write("a변수의 타입 : " + typeof(a) + "<br>");
+        var b = 0.5; 
+        document.write("b변수의 타입 : " + typeof(b) + "<br>");
+        a="javascript"; // 동적 타입 언어이다.
+        document.write("a변수의 타입 : " + typeof(a) + "<br>");
+        b="ECMAScript";
+        document.write("b변수의 타입 : " + typeof(b) + "<br>");
+        a=function(){};
+        document.write("a변수의 타입 : " + typeof(a) + "<br>");
+        b=[]; //자바스크립트에서 배열은 객체 취급
+        document.write("b변수의 타입 : " + typeof(b) + "<br>");
+        a={}; //JSON(javascript object notation 자바스크립트로 객체를 정의) 객체
+        document.write("a변수의 타입 : " + typeof(a) + "<br>");
+        b=new Object(); //생성자 호출
+        document.write("b변수의 타입 : " + typeof(b) + "<br>");
+        a=true;
+        document.write("a변수의 타입 : " + typeof(a) + "<br>");
+        a=0x2a;
+        document.write("0x2a의 10진수 값 : " + a + "<br>");
+        a=0o73;
+        document.write("0o73의 10진수 값 : " + a + "<br>");
+        a=0b101;
+        document.write("0b101의 10진수 값 : " + a + "<br>");
+        a=1.161425E-11;
+        document.write("1.161425E-11의 10진수 값 : " + a + "<br>");
+        a='"javascript"';
+        document.write(a +"<br>"); //"javascript" 출력?
+        var c = [];
+        document.write(c[0] + "<br>"); // 없는 배열의 요소를 읽으면? 출력? ---error
+        a=function(){};
+        document.write(a+"<br>"); //아무것도 반환하지 않는 함수가 반환하는 값은? 출력?
+        a=function(d){
+            alert(d); //함수를 호출했을 때 전달받지 못한 인수의 값?
+        };
+        a();
+	</script>
+</body>
+</html>

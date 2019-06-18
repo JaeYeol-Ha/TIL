@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+</head>
+<body>
+	#자바스크립트에서 변수 선언은 var 변수명; <br>
+	var 변수명 = 초기값;<br>
+	자바스크립트에서 문자열은 "" 또는 '' 로 감싸주어야 한다.<br>
+	변수를 선언하고 초기화하지 않으면, 아직 메모리에 생성이 되지 않은 상태이므로<br>
+	자바 스크립트가 사용하는 브라우저 프로그램의 메모리에서 a변수와 sum 변수로 저장된 값이 없으므로 undefined<br>
+	<script>
+		var sum, a;
+		console.log("a=" + a);
+		document.write("sum=" + sum + "<br>");
+		// document.write("x=" + x + "<br>"); // error
+		console.dir(window);
+		korea = 3; //실행시에 전역객체(Globale Object는 window객체)의 속성으로 추가됩니다.
+		document.write("korea=" + korea + "<br>");
+	</script>
+</body>
+</html>

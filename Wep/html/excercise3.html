@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>javascript 연산자</title>
+
+</head>
+
+<body>
+    <h3>자바스크립트 연산자</h3>
+
+    <script>
+        a = 1;
+        b = ++a;
+        console.log("b=" + b);
+        console.log("a=" + a);
+        c = a++ + 2;
+        console.log("c=" + c);
+        console.log("a=" + a);
+    //console.log("(a++)++ =>"+(a++)++);
+    </script>
+    실행할때마다 주사위가 던져져서 값이 출력됩니다<br>
+    <script>
+        var num = Math.round(Math.random() * 5) + 1;
+        document.write("주사위의 숫자 :" + num + "<br>");
+        //{} - JSON 객체는 Object 내장객체를 상속받습니다.
+        document.write("1 + {} :" + (1 + {}) + "<br>");
+        document.write("true + (new Date()) :" + (true + (new Date())) + "<br>");
+        var msgObj = new String("Everything is practice");
+        document.write("msgObj.length :" + msgObj.length + "<br>");
+        document.write("msgObj.charAt(3) :" + msgObj.charAt(3) + "<br>");
+        document.write("msgObj[3] :" + msgObj[3] + "<br>");
+        document.write("msgObj.substring(7, 10) :" + msgObj.substring(7, 10) + "<br>");
+        document.write("msgObj.slice(7, 10) :" + msgObj.slice(7, 10) + "<br>");
+        document.write("msgObj.slice(-3) :" + msgObj.slice(-3) + "<br>");
+        document.write("msgObj.slice(-9, -6) :" + msgObj.slice(-9, -6) + "<br>");
+        document.write('msgObj.indexOf("t") :' + msgObj.indexOf("t") + "<br>");
+        document.write("msgObj.indexOf('i', 10) :" + msgObj.indexOf("i", 10) + "<br>");
+        document.write("msgObj.split(' ') :" + msgObj.split(" ") + "<br>");
+        document.write("msgObj.replace('p', 'P') :" + msgObj.replace("p", "P") + "<br>");
+        document.write("msgObj.includes('thing') :" + msgObj.includes("thing") + "<br>");
+        document.write("msgObj.charCodeAt(0) :" + msgObj.charCodeAt(0) + "<br>");
+        document.write("msgObj.codePointAt(0) :" + msgObj.codePointAt(0) + "<br>");
+
+        document.write("null == undefined : " + (null == undefined) + "<br>");
+        document.write("1 == '1' : " + (1 == '1') + "<br>");
+        document.write("255== '0xff' : " + (255 == '0xff') + "<br>");
+        document.write("true== 1 : " + (true == 1) + "<br>");
+        document.write("true== '1' : " + (true == '1') + "<br>");
+        document.write("new String('a') == 'a' : " + (new String('a') == 'a') + "<br>");
+        document.write("new Number(2) == 2 : " + (new Number(2) == 2) + "<br>");  //==은 값만 비교합니다. 자바스크립트 엔진에서 자동 형변환이 수행됨
+
+
+        document.write("null === undefined : " + (null === undefined) + "<br>");
+        document.write("1 ==='1' : " + (1 === '1') + "<br>");
+        document.write("255==='0xff' : " + (255 === '0xff') + "<br>");
+        document.write("true===1 : " + (true === 1) + "<br>");
+        document.write("true==='1' : " + (true === '1') + "<br>");
+        document.write("new String('a')==='a' : " + (new String('a') === 'a') + "<br>");
+        document.write("new Number(2)=== 2 : " + (new Number(2) === 2) + "<br>"); //===연산자는 값과 타입을 비교합니다.
+
+        document.write("10>20>30 : " + (10 > 20 > 30) + "<br>");
+
+        var a = "window.alert('eval은 문자열을 자바스크립트 코드로 실행합니다')";
+        //eval(a);
+
+        var student = { "name": "kim", "ko": 85, "en": 90, "math": 80 };
+        document.write("typeof(student) : " + typeof (student) + "<br>");
+        document.write(" student instanceof Object : " + (student instanceof Object) + "<br>");
+
+        document.write(" 'ko' in student : " + ('ko' in student) + "<br>");
+
+    </script>
+</body>
+
+</html>

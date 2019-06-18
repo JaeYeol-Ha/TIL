@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>javascript 연산자</title>
+
+</head>
+
+<body>
+    <h3>문제</h3>
+    문1> if문을 이용해서 사용자로부터 입력받은 정수가 짝수인지 홀수 인지 출력<br>
+    <br>
+    문2> 삼항연산자를 이용해서 사용자로부터 입력받은 정수가 짝수인지 홀수인지 출력<br>
+    <br>
+    문3> &&, || 논리연산자를 이용해서 사용자로부터 입력받은 정수가 짝수인지 홀수인지 출력<br>
+    <br>
+    문4> switch문을 사용해서 사용자로부터 입력받은 점수에 대한 A(>=90), B(>=80), C(>=70), D(>=60), F(60이하) 등급을 판별하는 웹 어플리케이션을 switch구문을 사용하여
+    자바스크립트로 구현하시오<br><br>
+
+    <script>
+
+        var num = window.prompt("숫자를 입력하세요", 0);
+        document.write("문1 : " + isOdd(num) + "<br>");
+        document.write("문2 : " + isOdd2(num) + "<br>");
+        document.write("문3 : " + isOdd3(num) + "<br>");
+        document.write("문4 : " + getGrade(num) + "<br>");
+
+        function isOdd(num) {
+            if (num % 2 == 1)
+                return "홀수";
+            else
+                return "짝수";
+        }
+
+        function isOdd2(num) {
+            var str = (num % 2 == 1) ? "홀수" : "짝수";
+            return str
+        }
+
+        function isOdd3(num) {
+            if (num % 2 == 1 && num > 0)
+                return "홀수";
+            else if (num % 2 == 0 && num > 0)
+                return "짝수";
+            else
+                return "자연수가 아님";
+        }
+
+        //***** switch의 조건문 == case의 조건문 일때... *****
+        function getGrade(num) {
+            switch (true) {
+                case num >= 90: return "A"
+                case num >= 80: return "B"
+                case num >= 70: return "C"
+                case num >= 60: return "D"
+                case num < 60: return "F"
+                default : return "숫자가 아닐지도?"
+            }
+        }
+
+    </script>
+</body>
+
+</html>

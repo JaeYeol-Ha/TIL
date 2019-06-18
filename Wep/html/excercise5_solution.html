@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>javascript 제어문</title>
+
+</head>
+
+<body>
+    <h3>자바스크립트 제어문</h3>
+
+    if제어문 : nested if, 다중 if문 <br>
+    switch문 : javascript에서는 범위 비교 연산이 가능합니다.<br>
+    삼항 연산자(조건문)=> (조건식)? true일때 수행 문장 : false일때 수행하는 문장 <br>
+    조건식1 && 조건식2(실행문장2) => 조건식1이 true이면 조건식2(실행문장2)수행<br>
+    조건식1 && 조건식2(실행문장2) => 조건식1이 false이면 조건식2(실행문장2)수행 안함<br>
+    조건식1 || 조건식2(실행문장2) => 조건식1이 true이면 조건식2(실행문장2)수행 안함<br>
+    조건식1 || 조건식2(실행문장2) => 조건식1이 false이면 조건식2(실행문장2)수행 <br>
+    false || 문장 <br>
+    true && 문장 <br>
+    문1> if문을 이용해서 사용자로부터 입력받은 정수가 짝수인지 홀수 인지 출력<br>
+    문2> 삼항연산자를 이용해서 사용자로부터 입력받은 정수가 짝수인지 홀수 인지 출력<br>
+    문3> &&, || 논리연산자를 이용해서 사용자로부터 입력받은 정수가 짝수인지 홀수 인지 출력<br>
+    문4> switch문을 사용해서 사용자로부터 입력받은 점수에 대한
+    A(>=90), B(>=80), C(>=70), D(>=60), F(<60) 등급을 판별하는 웹 어플리케이션을 switch구문을 사용하여 자바스크립트로 구현하시오<br>
+
+
+        <script>
+            var num = Number(window.prompt("1~100사이의 수를 입력하세요", 0));
+            (num % 2 == 0) ? alert("짝수") : alert("홀수");
+
+            var jum = Number(window.prompt("1~100사이의 수를 입력하세요", 0));
+            (jum % 2 == 0) || alert("홀수");
+            (jum % 2 == 0) && alert("짝수");
+
+            var jumsu = Number(window.prompt("1~100사이의 점수를 입력하세요", 0));
+            switch (true) {
+                case jumsu > 89: alert("A"); break;
+                case jumsu > 79: alert("B"); break;
+                case jumsu > 69: alert("C"); break;
+                case jumsu > 59: alert("D"); break;
+                default: alert("F"); break;
+            }
+
+
+        </script>
+</body>
+
+</html>

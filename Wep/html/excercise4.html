@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>javascript 연산자</title>
+
+</head>
+
+<body>
+    <h3> 타입 변환 </h3>
+
+    <script>
+        function writeAndEval(str) {
+            document.write(str + " : ");
+            document.write(eval(str));
+            document.write("<br>");
+        }
+
+        writeAndEval('"0000" + 12');
+        writeAndEval('("0000" + 12).slice(-4)');
+        document.write("<br>");
+
+        var n = 26;
+        writeAndEval('n.toString()');
+        writeAndEval('n.toString(2)');
+        writeAndEval('n.toString(16)');
+        writeAndEval('(26).toString(16)');
+        document.write("<br>");
+
+        var x = 1234.567;
+        writeAndEval('x.toString(16)');
+        writeAndEval('x.toFixed(0)');
+        writeAndEval('x.toFixed(4)');
+        writeAndEval('x.toExponential(3)');
+        writeAndEval('x.toPrecision(3)');
+        writeAndEval('x.toPrecision(6)');
+        document.write("<br>");
+
+        // String 함수 : 모든 데이터 타입을 문자열 타입으로 변환
+        writeAndEval('String("ABC")');
+        writeAndEval('String({x:1, y:2})');
+        writeAndEval('String([1,2,3])');
+        document.write("<br>");
+
+        //문자열을 숫자로 변환하기
+        var s = "2";
+        document.write("<br>");
+        
+        //1.수식을 이용
+        writeAndEval('s-0');
+        writeAndEval('+s');
+        document.write("<br>");
+
+        //2.parseInt,parseFloat 이용
+        writeAndEval('parseInt("3.14")');
+        writeAndEval('parseInt("3.14 meter")'); // 숫자 다음 문자열은 무시
+        writeAndEval('parseInt("0xFF")'); //0x를 16진수로 해석
+        writeAndEval('parseInt(0xFF)');
+        writeAndEval('parseFloat(".5")'); // 첫 문자열을 해석하지 못하면 NaN
+        document.write("<br>");
+        
+        //Number 함수 이용
+        writeAndEval('Number(true)');
+        writeAndEval('Number(false)');
+        writeAndEval('Number({x:1,y:2})');
+
+        writeAndEval('!!" "');
+        writeAndEval('!!""');
+
+        //문자열 값 입력 윈도우
+        var input1 = window.prompt("점수를 입력하세요", 0);
+        document.write(input1 + " " + typeof(input1) + "<br>");
+        
+        //boolean 값 입력 윈도우
+        var input2 = window.confirm("종료하시겠습니까?");
+        document.write(input2 + " " + typeof(input2) + "<br>");
+        
+    </script>
+</body>
+
+</html>
