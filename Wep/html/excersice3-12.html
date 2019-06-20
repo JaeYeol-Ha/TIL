@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>이벤트</title>
+    <style>
+        body {
+            font-size: 9pt;
+        }
+    </style>
+    <script>
+        window.addEventListener("load", function () {
+            setTimeout(function () {
+                /* 다른 링크로 이동 */
+                // location.href = "http://www.w3schools.com";
+                // location.assign("http://www.w3schools.com");
+                // location.replace("http://www.w3schools.com");
+
+                /* 새로고침 */
+                location.reload();
+                // location.href=location.href;
+            }, 3000);
+        }, false);
+    </script>
+</head>
+
+<body>
+    <h4>이 페이지는 3초 후에 www.w3school.com으로 이동합니다.</h4>
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <h3>객체 리터럴 방식으로 객체 생성</h3>
+    <script>
+        var student = {
+            이름: '홍길동',
+            영어: 88,
+            국어: 90,
+            수학: 77,
+            과학: 75,
+            total: function () {
+                //총점 반환
+                var sum = 0;
+                for (const key in student) {
+                    if (student.hasOwnProperty(key)) {
+                        if (!isNaN(student[key]))
+                            sum += student[key];
+                    }
+                }
+                return sum;
+            },
+            average: function () {
+                //평균 반환
+                var avg = this.total() / 4;
+                return avg;
+            }
+        };
+
+        document.write(student.이름 + "의 총점 : " + student.total() + "<br>");
+        document.write(student.이름 + "의 평균 : " + student.average() + "<br>");
+        document.write("<br>");
+
+        //객체 생성을 위한 생성자 함수 정의
+        function Student(name, ko, math, en, sci) {
+            this.name = name;
+            this.ko = ko;
+            this.math = math;
+            this.en = en;
+            this.sci = sci;
+            this.total = function () {
+                //총점 반환
+                var sum = 0;
+                for (const key in student) {
+                    if (student.hasOwnProperty(key)) {
+                        if (!isNaN(student[key]))
+                            sum += student[key];
+                    }
+                }
+                return sum;
+            };
+            this.average = function () {
+                //평균 반환
+                var avg = this.total() / 4;
+                return avg;
+            };
+        }
+        //객체 생성
+        var students = [
+            new Student('장기영', 87, 98, 88, 95),
+            new Student('영하진', 92, 98, 68, 95),
+            new Student('나선주', 87, 98, 88, 95),
+            new Student('윤병원', 87, 98, 88, 95),
+            new Student('김경찰', 87, 98, 88, 95),
+            new Student('장례식', 87, 98, 88, 95),
+            new Student('장기영', 87, 98, 88, 95),
+            new Student('장기영', 87, 98, 88, 95),
+        ];
+        for (var idx in students) {
+            document.write(students[idx].name + "의 총점 : " + student[idx].total() + "<br>");
+            document.write(students[idx].name + "의 평균 : " + student[idx].average() + "<br>");
+            document.write("<br>");
+        }
+    </script>
+</body>
+
+</html>
