@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <title>jQuery 기본</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+
+        /* //load이벤트 발생시점 : html, css, javascript가 모두 다운받아진 후
+        jQuery(document).ready(function () { alert("ready event handler1") });
+        // equals
+        $(document).ready(function () { alert("ready event handler2") });
+        // equals
+        $(function(){alert("ready event handler3")});
+         */
+
+        $(document).ready(function () {
+            // $("*").css("color", "blue").css("backgroundColor", "orange"); //메소드 체이닝
+            // $("div, p").css("color", "blue").css("backgroundColor", "orange"); //메소드 체이닝
+            // $("#simp le").css("color", "blue").css("backgroundColor", "orange"); //메소드 체이닝
+            // $(".todo").css("color", "blue").css("backgroundColor", "orange"); //메소드 체이닝
+            $("body>p").css("color", "blue").css("backgroundColor", "orange"); //메소드 체이닝
+            $('input[type=text]').val("Hello jQuery!!!");
+            $('input[type=password]').val("goodBye!");
+            $('input[type=email]').val("Courcera is Good~");
+            $('input[type=search]').val("Nice");
+            $("input:password").css("backgroundColor", "cyan");
+            $("input:focus").css("backgroundColor", "lightgray")
+        });
+
+    </script>
+</head>
+
+<body>
+    <h3> jQuery</h3>
+    <h3 id="simple"> jQuery는 Javascript보다 코드가 간결해서 코드량을 1/3으로 줄여준다.</h3>
+    <h3> jQuery 효과를 조합하면 멋진 효과를 만들 수 있다.</h3>
+    <div class="todo"> 1. 좀 쉬기 </div>
+    <p> 2. 많이 먹기</p>
+    <article class="todo"> 3. 많이 공부하기 </article>
+    <ul>
+        <li>4. 사회 관계망 튼튼하게 하기</li>
+        <li>5. 긍정적 마인드 컨트롤하기</li>
+    </ul>
+    <br>
+    <br>
+
+    text : <input type="text"><br>
+    pw : <input type="password"><br>
+    email : <input type="email"><br>
+    search : <input type="search" autofocus><br>
+    tel : <input type="tel"><br>
+    url : <input type="url"><br>
+
+</body>
+
+</html>

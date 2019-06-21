@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>템플릿 리터럴 연습</title>
+</head>
+<body>
+    <script>
+
+        var t =`Man errs as long as 
+        he strives.`;
+        document.write(t + "<br>");
+        // ==
+        var t ="Man errs as long as \n he strives.";
+        document.write(t + "<br>");
+        // == 
+        var t =`Man errs as long as \n he strives.`;
+        document.write(t + "<br>");
+        // !=
+
+        var t = String.raw`Man errs as long as \n he strives.`;
+        document.write(t + "<br>");
+        // ==
+        var t = "Man errs as long as \\n he strives.";
+        document.write(t + "<br>");
+
+    </script>
+</body>
+</html>

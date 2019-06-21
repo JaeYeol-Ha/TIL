@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script type="text/javascript">
+        function fromDataURL() {
+            var copyCanvas = document.getElementById('copyCanvas');
+            var copyContext = copyCanvas.getContext('2d');
+            var image = new Image();
+            image.src = canvas.toDataURL();
+            image.onload = function () {
+                copyContext.drawImage(image, 0, 0);
+            }
+        }
+
+        function fromDataURL2() {
+            var copyCanvas = document.getElementById('copyCanvas');
+            var copyContext = copyCanvas.getContext('2d');
+            copyContext.drawImage(canvas, 0, 0);
+        }
+    </script>
+</head>
+
+<body>
+    //Canvas에 그린 그림을 이미지로 변환하기
+    <canvas id="drawCanvas" width="200" height="200" style=" position: relative;
+        border: 1px solid #000;"></canvas>
+    <button onclick="fromDataURL();">캔버스 복사=></button>
+    <canvas id="copyCanvas" width="200" height="200" style=" position: relative;
+        border: 1px solid #000;"></canvas>
+
+    <br>
+    <br>
+
+    //Canvas에 그린 그림을 다른 Canvas로 복사하기
+    <canvas id="drawCanvas" width="200" height="200" style=" position: relative;
+border: 1px solid #000;"></canvas>
+    <button onclick="fromDataURL2();">캔버스 복사=></button>
+    <canvas id="copyCanvas" width="200" height="200" style=" position: relative;
+border: 1px solid #000;"></canvas>
+</body>
+
+</html>
