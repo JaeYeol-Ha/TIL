@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title></title>
+	<style>
+		.high_light_0 {
+			background: yellow;
+		}
+
+		.high_light_1 {
+			background: orange;
+		}
+
+		.high_light_2 {
+			background: blue;
+		}
+
+		.high_light_3 {
+			background: green;
+		}
+
+		.high_light_4 {
+			background: red;
+		}
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function () {
+			var arry = [
+				{ name: "네이버", link: "http://www.naver.com" },
+				{ name: "구글", link: "http://www.google.com" },
+				{ name: "멀티캠퍼스", link: "http://www.multicampus.com" },
+				{ name: "jQuery", link: "http://www.jquery.com" },
+				{ name: "jQuery Mobile", link: "http://www.jquerymobile.com" }
+			]
+			var output = "";
+
+			$.each(arry, function (index, item) {
+				output += "<a href=" + item.link + "><h1>" + item.name + "</h1></a><br>";
+			});
+			document.body.innerHTML = output;
+
+			$('h1').each(function (index, item) {
+				$(item).addClass('high_light_' + index);
+			});
+		});
+
+	</script>
+</head>
+
+<body>
+
+</body>
+
+</html>
