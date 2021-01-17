@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>웹 워커</title>
+<script>
+	var worker=null;
+	function init(){
+		var btnStart=document.getElementById("btnStart");
+		var btnStop=document.getElementById("btnStop");
+		var demo=document.getElementById("demo");
+		                                                         
+		btnStart.addEventListener("click", startWorker);
+		btnStop.addEventListener("click", stopWorker);
+	}
+	function startWorker(){
+		if(!window.Worker) {
+			console.log("웹 워커를 지원하지 않는 브라우저입니다.");
+		}
+		if (worker){
+		  stopWorker();
+		}
+		
+		worker=new Worker("worker.js");
+		worker.postMessage(""); 
+		
+		worker.onmessage=function(event) {
+		  console.log("호출 메시지:", event.data );
+		  demo.innerHTML += event.data+"<br>";
+		};
+	}
+	function stopWorker(){
+	  if(worker){
+	    worker.terminate();
+	    worker=null;
+	  }
+	}
+	window.addEventListener("load", init, false);
+</script>
+</head>
+<body>
+	<h2>Web Worker Test</h2>
+	<button id="btnStart" class="btn">Start</button>
+	<button id="btnStop"  class="btn">Stop</button>
+	<div id="demo"></div> 
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ajax테스트</title>
+</head>
+<body>
+<h2 onclick="getImage();">이 행을 클릭해요. Ajax로 이미지를 요청하고 출력해요....</h2>
+<script>
+function getImage() {
+	var xhr = new XMLHttpRequest();	
+	xhr.responseType = 'blob';
+	xhr.onload = function(e) {
+  		if (this.status == 200) {
+    		var blob = e.target.response
+    		var img = document.createElement('img');
+    		img.width=100;
+    		img.height=100;
+    		img.onload = function(e) {
+     	 		URL.revokeObjectURL(img.src); 
+    		};  
+    		img.src = URL.createObjectURL(blob);
+    		document.body.appendChild(img);    
+  		}
+	};
+	xhr.open('GET', 'content/duke_luau.png', true);
+	xhr.send();
+}
+</script>
+</body>
+</html>

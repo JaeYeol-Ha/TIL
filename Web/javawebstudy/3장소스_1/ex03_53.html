@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>캔바스1</title>
+</head>
+<body>
+<canvas id="myCan1" width="200" height="100"></canvas>
+<canvas id="myCan2" width="100" height="100"></canvas>
+<canvas id="myCan3" width="200" height="100" style="border:1px solid #000000;"></canvas>
+<script>
+	var c=document.getElementById("myCan1");
+	var ctx=c.getContext("2d");
+	ctx.strokeStyle="green";
+	ctx.arc(95,50,40,0,Math.PI);
+	ctx.stroke();
+	
+	var c=document.getElementById("myCan2");
+ 	var ctx=c.getContext("2d");
+	ctx.moveTo(0,0);
+	ctx.lineTo(100,100);
+	ctx.stroke(); 
+	
+	var c=document.getElementById("myCan3");
+	var ctx=c.getContext("2d");
+	ctx.fillStyle="#FF0000";
+	ctx.fillRect(0,0,150,75);
+	ctx.stroke();
+</script>
+</body>
+</html>

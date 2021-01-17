@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>비디오</title>
+<style>
+div{
+	text-align: center;
+	
+}
+</style>
+<script>
+	var v;
+	function btnPlay(){
+		v=document.getElementById("vdo");
+		v.play();
+	}
+	function btnPause(){
+		v.pause();
+	}
+	function btnStop(){
+		v.pause();
+		v.currentTime=0;
+	}
+	function btnPrev(){
+		v.currentTime -= 5;
+	}
+	function btnNext(){
+		v.currentTime += 5;
+	}
+	function btnRate1(){
+		v.playbackRate=1;
+	}
+	function btnRate2(){
+		v.playbackRate=2;
+	}
+	function btnSizeNomal(){
+		v.width=300;
+	}
+	function btnSizeLarge(){
+		v.width=500;
+	}
+	function btnSizeSmall(){
+		v.width=150;
+	}
+</script>		
+</head>
+<body>
+<div>
+	<h3>Gilgamesh Story</h3>
+	<video width="300" id="vdo" controls="controls">
+	  	<source  src="video/gilgamesh.mp4"  type="video/mp4"></source>
+	</video>
+	<br>
+	<button onclick="btnPlay()">시작</button>
+	<button onclick="btnPause()">일시정지</button>
+	<button onclick="btnStop()">정지</button>
+	<button onclick="btnRate1()">1배속</button>
+	<button onclick="btnRate2()">2배속</button><br><br>
+	<button onclick="btnPrev()">&lt;&lt;</button>
+	<button onclick="btnNext()">&gt;&gt;</button>
+	<button onclick="btnSizeNomal()">일반화면</button>
+	<button onclick="btnSizeLarge()">2배화면</button>
+	<button onclick="btnSizeSmall()">1/2화면</button>
+</div>
+</body>
+</html>

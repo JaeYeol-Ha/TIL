@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>페이지 제작</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                 <img src="image/namgaram.png">
+            </div>
+            <ul class="sidemenu">
+               <li><a href="#">Home</a></li> 
+               <li><a href="#">Sitemap</a></li>
+            </ul>
+        </div>
+    </header>
+    <!-- //header -->
+    
+	<!-- nav --------------------------------------------- -->
+	<nav>
+		<div class="container">
+			<ul class="leftMenu">
+				<li class="active"><a href="index.html">Home</a></li>
+				<li><a href="galary.html">갤러리</a></li>
+				<li class="dropBox">
+					<a href="board.html">게시판</a> 
+					<span class="dropmenu"> 
+						<span><a href="#">자유 게시판</a></span> 
+						<span><a href="#">문의 게시판</a></span> 
+						<span><a href="#">건의 게시판</a></span>
+					</span>
+				</li>
+				<li class="dropBox">
+					<a href="">멀티미디어</a> 
+					<span class="dropmenu"> 
+						<span><a href="#">음악듣기</a></span> 
+						<span><a href="#">동영상보기</a></span> 
+					</span>
+				</li>
+				<li><a href="#">상품구매</a></li>
+				<li><a href="#">찾아오시는길</a></li>
+			</ul>
+			<ul class="rightMenu">
+				<li><a href="join.html">회원가입</a></li>
+				<li><a href="login.html">로그인</a></li>
+			</ul>
+		</div>
+	</nav>
+	<!-- //nav -->
+	
+	<!-- section3 --------------------------------------------- -->
+    <section id="section3">
+        <div class="container">
+            <h1>갤러리</h1>
+            <div class="box">
+                <div class="image_box">
+                    <img src="image/s1.jpg" alt="" onclick="showDivs(1)">
+                </div>
+                <div class="des">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates, nam.
+                </div>
+            </div>
+            <div class="box">
+                <div class="image_box">
+                    <img src="image/s2.jpg" alt="" onclick="showDivs(2)">
+                </div>
+                <div class="des">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, numquam.
+                </div>
+            </div>
+            <div class="box">
+                <div class="image_box">
+                    <img src="image/s3.jpg" alt="" onclick="showDivs(3)">
+                </div>
+                <div class="des">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, fugit!
+                </div>
+            </div>
+            <div class="box">
+                <div class="image_box">
+                    <img src="image/s4.jpg" alt="" onclick="showDivs(4)">
+                </div>
+                <div class="des">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae, sequi?
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="clear"></div>
+    <!-- //section3 -->
+    
+    <div id="back"></div>
+    <div id="popup">
+        <div class="title">SandArt Popup <span class="close" onclick="closePopup()">&times;</span></div>
+         <div align="center" class="large">
+			<div class="small">
+				<img class="mySlides" src="image/s1.jpg">
+				<img class="mySlides" src="image/s2.jpg">
+				<img class="mySlides" src="image/s3.jpg">
+				<img class="mySlides" src="image/s4.jpg">
+				
+				<a class="leftbtn" onclick="plusDivs(-1)">◀</a>
+				<a class="rightbtn" onclick="plusDivs(1)">▶</a>
+			</div>
+		</div>
+    </div>
+    
+    <!-- footer -->
+    <footer>    
+        <div class="top">
+            <div class="container">
+                <span>다운로드</span>
+                <span>개인정보처리방침</span>
+                <span>저작권지침및신고</span>
+                <span>이메일무단수집거부</span>
+            </div>
+        </div>
+        <div class="container">
+            <strong>
+                Home : Location Log : Tag Log : Media Log : Guestbook : Admin : New Post
+            </strong>
+            <div class="copyright">
+                COPYRIGHT Ⓒ 남가람북스's BLOG IS POWERED BY DAUM / DESIGNED BY TISTORY
+            </div>
+        </div>
+    </footer>
+    <!-- //footer -->
+    
+	<script>
+		var slideIndex=0;
+		function plusDivs(n) {
+		  showDivs(slideIndex += n);
+		}
+		function showDivs(n) {
+		  var i;
+		  slideIndex = n;
+		  var x = document.getElementsByClassName("mySlides");
+		  if (n > x.length) {slideIndex = 1}    
+		  if (n < 1) {slideIndex = x.length} ;
+		  for (i = 0; i < x.length; i++) {
+		     x[i].style.display = "none";  
+		  }
+		  x[slideIndex-1].style.display = "block";  
+		  document.getElementById("back").style.display = "block";
+		  document.getElementById("popup").style.display = "block"; 
+		} 
+		
+		function closePopup(){
+			document.getElementById("back").style.display = "none";
+		    document.getElementById("popup").style.display = "none";
+		}
+	</script>
+</body>
+</html>

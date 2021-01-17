@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <title>Ajax테스트</title>
+      <style>
+      table {
+	     height: 100px;
+	     width: 450px;
+	     text-align: center;
+      }
+      </style>
+      <script>
+      window.onload = function() {
+	     setInterval(function() {
+		    var xhr = new XMLHttpRequest();
+		    xhr.onload = function(event) {
+			   if (xhr.status == 200) {
+				  var str = xhr.responseText;
+				  var obj = JSON.parse(str);
+				  var target = document.getElementById('news');
+				  target.innerHTML = obj.news;
+			   }
+		    };
+		    xhr.open('GET', 'content/newsjson.jsp', true);
+		    xhr.send(); 
+	     }, 2000);
+      };	 
+      </script>
+   </head>
+   <body>
+      <h2>2초 간격으로 뉴스 요청 Ajax 통신</h2>
+	  <table border="1">
+		<tr>
+		   <th>뉴스 내용</th>
+		</tr>
+		<tr>
+		   <td id="news">잠시 기다리세요.........................</td>
+		</tr>
+	</table>
+</body>
+</html>

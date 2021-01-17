@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>지오로케이션</title>
+<script src="https://maps.googleapis.com/maps/api/js?key=사용자 API 인증키"></script>
+<script>
+var myCenter=new google.maps.LatLng(37.498146, 127.027557);
+
+function myMap()
+{
+	var mapProp = {
+	  center:myCenter,
+	  zoom:5,
+	  mapTypeId:google.maps.MapTypeId.ROADMAP};
+	
+	var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+	
+	var marker=new google.maps.Marker({
+							  position:myCenter,
+							  animation:google.maps.Animation.BOUNCE  // 마커 애니메이션
+	});
+	marker.setMap(map);
+}
+</script>
+</head>
+<body onload="myMap()">
+<div id="googleMap" style="width:500px;height:380px;"></div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+
+<html>
+   
+  <head>
+      
+  <meta charset='UTF-8'>
+      
+  <title>Ajax테스트</title>
+      
+  <script>
+      
+    window.onload = function() {
+         
+        var xhr = new XMLHttpRequest();
+         
+        xhr.onload = function(event) {
+            
+          if (xhr.status == 200) {
+               
+            var xml = xhr.responseXML;
+	  	       
+            var rootE = xml.getElementsByTagName('testxml');
+		       
+            var output = '';
+		       
+            for (var i = 1; i < rootE[0].childNodes.length; i += 2)
+		          
+              output += "<h3>"+rootE[0].childNodes[i].firstChild.nodeValue+"</h3>";
+ 		       
+           document.body.innerHTML += output;
+	        
+        }
+         
+      };
+         
+      xhr.open('GET', 'content/sample.xml', true);
+         
+      xhr.send();
+     
+    };
+      
+  </script>
+   
+  </head>
+   
+  <body>
+      
+    <h2>onload 속성 사용 - XML응답</h2>
+      
+    <hr>
+   
+  </body>
+
+</html>
+
+
+
+
+

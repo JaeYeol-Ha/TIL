@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>지오로케이션</title>
+<style>
+	#myCanvas { width: 500px; height: 400px; background-color: #CCC; }
+</style>
+<script src="https://maps.googleapis.com/maps/api/js?key=사용자 API 인증키"></script>
+<script>
+function myMap() {
+	var mapCanvas = document.getElementById("myCanvas");
+	var myLatlng = new google.maps.LatLng(37.498146, 127.027557);
+	
+	var mapOptions = {			// 구글 맵 옵션
+		center: myLatlng, 
+		zoom: 16, 
+		mapTypeId: google.maps.MapTypeId.ROADMAP
+	};
+
+	// 구글 맵 생성
+	var map = new google.maps.Map(mapCanvas, mapOptions);
+
+	var marker = new google.maps.Marker({
+		position: myLatlng,
+		map: map, 
+	    draggable:true,			// 마커 드래그 가능
+		title: '지하철 강남역에서 하차'	// 마커: 도움말 풍선(마우스 오버 시)
+	});
+	
+	var contentString = '<div style="width:100px;height:50px;">여기서 만나자</div>';	// 말풍선 내용
+
+	var infowindow = new google.maps.InfoWindow({
+		content: contentString,
+		size: new google.maps.Size(200,100)
+	});
+	google.maps.event.addListener(marker, 'click', function() {
+		infowindow.open(map, marker);
+
+		if (marker.getAnimation() != null) {
+			marker.setAnimation(null);
+		} else {
+			marker.setAnimation(google.maps.Animation.BOUNCE);
+		}
+	});
+	marker.setMap(map);
+}
+</script>
+</head>
+<body onload="myMap()">
+	<div id="myCanvas"></div>
+</body>
+</html>

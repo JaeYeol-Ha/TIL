@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  #container {
+    width: 960px;
+    margin: 0px auto;
+    padding: 20px;
+    border: 1px solid #5D5D5D;
+  }
+  #header {
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #5D5D5D;
+  }
+  #content {
+    width: 600px;
+    padding: 20px;
+    margin-bottom: 20px;
+    float: left;
+    border: 1px solid #5D5D5D;
+  }
+  #sidebar {
+    width: 260px;
+    padding: 20px;
+    margin-bottom: 20px;
+    float: right;
+    border: 1px solid #5D5D5D;
+  }
+  #footer {
+    clear: both;
+    padding: 20px;
+    border: 1px solid #5D5D5D;
+  }
+  @media ( max-width: 550px ) {
+    #container {
+      width: auto;
+    }
+    #content {
+      float: none;
+      width: auto;
+    }
+    #sidebar {
+      float: none;
+      width: auto;
+    }
+  }
+</style>
+</head>
+<body>
+<div id="container">
+  <div id="header">
+    <h1>동화&nbsp; 속 이야기</h1>
+  </div>
+  <div id="content">
+    <h2>내용</h2>
+    <p>When Alice follows the White Rabbit down a rabbit hole, she finds herself in a land where she can change her size. </p>
+    <p>She meets a Duchess with a pig for a baby, a Cook that throws spoons, a wise but mad Cheshire cat, the March Hare, Mad Hatter and a Dormouse. A Caterpillar shows her how to adjust her height by eating from the right and left sides of a mushroom. With that knowledge,</p>
+  </div>
+  <div id="sidebar">
+    <h2>도서 선택</h2>
+    <ol>
+      <li><a href="">Alice's Adventures in Wonderland</a></li>
+      <li><a href="">The Adventures of Tom Sawyer</a></li>
+      <li><a href="">Anne of Green Gables</a></li>
+      <li><a href="">Les Miserables</a></li>
+    </ol>
+  </div>
+  <div id="footer">
+    <p>Copyright <a href="">www.namgaranbooks.co.kr</a></p>
+  </div>
+</div>
+</body>
+</html>

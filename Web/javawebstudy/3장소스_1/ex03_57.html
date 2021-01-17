@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>캔바스5</title>
+</head>
+<body>
+<canvas id="myCanvas" width="280" height="90" style="border:1px dotted #000;"></canvas>
+<script>
+	var c = document.getElementById("myCanvas");
+	var ctx = c.getContext("2d");
+	
+	var grd=ctx.createLinearGradient(0,0,250,0);
+	grd.addColorStop(0,"red");
+	grd.addColorStop("0.3","yellow");
+	grd.addColorStop("0.5","green");
+	grd.addColorStop("0.6","blue");
+	grd.addColorStop("0.8","magenta");
+	grd.addColorStop(1,"black");
+
+	ctx.fillStyle = grd;
+	ctx.font = "25px Arial";
+	ctx.fillText("Have a nice day today",10,50);
+</script>
+</body>
+</html>

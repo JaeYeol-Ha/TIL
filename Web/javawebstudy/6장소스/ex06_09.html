@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <title>Ajax테스트</title>
+      <link rel="stylesheet" type="text/css"
+              href="http://fonts.googleapis.com/earlyaccess/jejugothic.css">
+      <style>
+      * {
+        font-family: 'Jeju Gothic', serif;
+        font-size: 17px;
+      }
+      h1 {       
+        font-size: 25px;
+      }
+      #databox{
+      width: 400px;
+      height: 200px;
+      margin: 10px;
+      padding: 10px;
+      border: 1px solid #999999;
+      border-radius: 10px;  
+      }
+      </style>
+      <script>
+      var databox;
+      function initiate() {
+         databox = document.getElementById('databox');
+         databox.addEventListener('dragover', function(e) {
+            e.preventDefault();
+         });
+         databox.addEventListener('drop', dropped);
+      }
+      function dropped(e) {
+    	  alert(e)
+         e.preventDefault();
+         var files = e.dataTransfer.files;         
+         var result = "";
+         var data = new FormData();
+         for (var f = 0; f < files.length; f++) {
+            data.append('myuploadfile'+f, files[f]);
+         }
+         var xhr = new XMLHttpRequest();
+         xhr.addEventListener("load",  function() {
+            if(xhr.status == 200){
+               result = "업로드 완료!!";				
+            } else {
+               result = " 업로드 실패!!";			
+            }	
+            document.querySelector("output").textContent=result;
+         });         
+         xhr.open("POST", "/edu/upload", true);
+         xhr.send(data);					
+         			
+      }
+      window.addEventListener('load', initiate);
+      </script>
+    </head>
+    <body>
+      <section id="databox">
+         <output> 업로드하려는 파일을 드래그하여 여기 드롭하세요....</output>
+      </section>
+   </body>
+</html>
+
+
+

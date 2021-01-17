@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>드래그앤드롭</title>
+<style>
+#shopping_cart {
+    width:610px;
+    height:100px;
+    padding:10px;
+    border:1px dotted red;
+}
+img{
+	width:100px;
+	height:100px;
+}
+</style>
+<script>
+	function allowDrop(ev) {
+	  ev.preventDefault();
+	}
+	function drag(ev) {
+	  ev.dataTransfer.setData("text", ev.target.id);
+	}
+	function drop(ev) {
+	  ev.preventDefault();
+	  var data = ev.dataTransfer.getData("text");
+	  ev.target.appendChild(document.getElementById(data));
+	}
+</script>
+</head>
+<body>
+	<p>원하는 상품을 카트에 담으세요</p>
+	<div id="shopping_cart" ondrop="drop(event)" ondragover="allowDrop(event)"></div><br>
+	<img id="img1" src="image/back1.jpg" draggable="true" ondragstart="drag(event)">
+	<img id="img2" src="image/back2.jpg" draggable="true" ondragstart="drag(event)">
+	<img id="img3" src="image/back3.jpg" draggable="true" ondragstart="drag(event)">
+	<img id="img4" src="image/back4.jpg" draggable="true" ondragstart="drag(event)">
+	<img id="img5" src="image/back5.jpg" draggable="true" ondragstart="drag(event)">
+	<img id="img6" src="image/back6.jpg" draggable="true" ondragstart="drag(event)">
+</body>
+</html>

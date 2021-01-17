@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>location 객체</title>
+<script>
+	function process(){
+		var name=frm.name.value;
+		var phone=frm.phone.value;
+		location.href="win2.html?"+name+"&"+phone;
+	}
+</script>
+</head>
+<body>
+	<form name="frm">
+	사용자명 : <input type="text" name="name">
+	전화번호 : <input type="text" name="phone">
+	<input type="button" onclick="process()" value="보내기">
+	</form>
+</body>
+</html>

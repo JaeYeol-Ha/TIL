@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	h2{
+		text-shadow: 3px 5px 7px gray;
+	}
+	
+	input{
+		border-radius: 20px;
+		padding: 5px;
+		margin-bottom : 2px;
+	}
+</style>
+</head>
+<body>
+<h2>회원 정보를 입력하십시오.</h2>
+<hr>
+<form method="post" action="/mvc/memberServlet">
+<input type="text" placeholder="이름을 입력하세요" name="name"><br>
+<input type="text" placeholder="전화번호를 입력하세요" name="phonenumber"><br>
+<input type="text" placeholder="계정을 입력하세요" name="id"><br>
+<input type="password" placeholder="패스워드를 입력하세요" name="passwd"><br>
+<input type="submit" value="등록">
+<input type="reset" value="재작성">
+</form>
+</body>
+</html>

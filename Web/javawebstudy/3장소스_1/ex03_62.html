@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>웹 소켓</title>
+<script>
+	var url="ws://echo.websocket.org";
+	var demo;
+	
+	function init(){
+		demo=document.getElementById("demo");
+		callWebSocket();
+	}
+	function callWebSocket(){
+		ws=new WebSocket(url);
+		ws.onopen=function(event){onOpen(event)}
+		ws.onclose=function(event){onClose(event)}
+		ws.onmessage=function(event){onMessage(event)}
+		ws.onerror=function(event){onError(event)}
+	}
+	function onOpen(event){
+		printToScreen("접속 성공");
+		doSend("Hello webSocket");
+	}
+	function onClose(event){
+		printToScreen("접속 종료");
+	}
+	function onMessage(event){
+		printToScreen("<span style='color:blue;'>수신 메시지: " + event.data +"</span>");
+		ws.close();
+	}
+	function onError(event){
+		printToScreen("<span style='color:red;'>에러 발생: " + event.data +"</span>");
+	}
+	function printToScreen(message){
+		var pre=document.createElement("p");
+		pre.style.wordWrap="break-word";
+		pre.innerHTML=message;
+		demo.appendChild(pre);
+	}
+	function doSend(message){
+		printToScreen("송신 메시지: " + message);
+		ws.send(message);
+	}
+	window.addEventListener("load", init, false);
+</script>
+</head>
+<body>
+	<h2>Web Socket Test</h2>
+	<div id="demo"></div>
+</body>
+</html>

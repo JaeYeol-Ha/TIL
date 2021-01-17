@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>캔바스3</title>
+</head>
+<body>
+<img id="bear" src="image/bear.jpg" style="display:none"/>
+<canvas id="myCanvas" width="800px" height="600px"></canvas>
+<script>
+	var canvas = document.getElementById('myCanvas');
+	var ctx = canvas.getContext('2d');
+	
+	var image=document.getElementById("bear");
+	ctx.drawImage(image, 10,10,250,200);
+	
+	ctx.font="40px Arial Black";
+	ctx.strokeStyle="rgb(47,157,39)";
+	ctx.fillStyle="rgb(5,0,153)";
+	ctx.fillText("Welcome To My Blog",250,150)
+	ctx.strokeText("HTML5 Canvas",250,200);
+</script>
+</body>
+</html>
