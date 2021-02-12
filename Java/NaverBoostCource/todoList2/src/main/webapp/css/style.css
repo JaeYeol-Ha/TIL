@@ -1,0 +1,14 @@
+ html{
+ font-family: "돋움",  sans-serif;
+ }
+  body{
+    background-color : rgb(236,240,238);
+  }
+
+  #section-style{
+    position : relative;
+    background-color : white;
+    width:1200px;
+    left:11%;
+    height:auto;
+  }
