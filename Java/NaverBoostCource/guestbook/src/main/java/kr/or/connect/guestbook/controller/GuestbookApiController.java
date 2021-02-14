@@ -29,7 +29,7 @@ public class GuestbookApiController {
 	
 	@GetMapping
 	public Map<String, Object> list(@RequestParam(name="start", required=false, defaultValue="0") int start) {
-		//클라이언트에게 return 시에는 Map 객체가 Json으로 변환되어서 감!
+		
 		List<Guestbook> list = guestbookService.getGuestbooks(start);
 		
 		int count = guestbookService.getCount();
